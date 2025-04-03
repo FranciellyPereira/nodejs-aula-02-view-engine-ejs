@@ -1,0 +1,21 @@
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<h1>Confira esse produto:</h1>
+
+<% if (!produto) { %>
+    <% if (Array.isArray(produtos) && produtos.length > 0) { %>
+        <% produtos.forEach(item => { %>
+            <p><a href="/produtos/<%= item %>"><%= item %></a></p>
+        <% }) %>
+    <% } else { %>
+        <p>Nenhum produto disponível.</p>
+    <% } %>
+<% } else { %>
+    <p><%= produto %></p>
+<% } %>
+
+<hr>
+<p>Faça seu pedido agora!</p>
+
+<%- include('partials/footer.ejs') %>
